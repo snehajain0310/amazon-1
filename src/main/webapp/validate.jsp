@@ -15,8 +15,8 @@
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		
 		//step-2
-		 con = DriverManager.getConnection("jdbc:mysql://localhost:3306/jayshreedb", 
-				"root", "root");
+		 con = DriverManager.getConnection("jdbc:mysql://localhost:3306/testdb", 
+				"student", "student");
 		
     	return con;
     }
@@ -27,7 +27,7 @@ Connection is <%=getConnection() %>
 <%
 	con=getConnection();
 
-	PreparedStatement ps=con.prepareStatement("insert into userinfo values(?,?)");
+	PreparedStatement ps=con.prepareStatement("insert into passwd values(?,?)");
 	ps.setString(1,request.getParameter("username"));
 	ps.setString(2,request.getParameter("password"));
 	int i=ps.executeUpdate();
